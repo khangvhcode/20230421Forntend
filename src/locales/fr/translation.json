@@ -1,0 +1,161 @@
+{
+  "login": {
+    "label": {
+      "signIn": "Sign in to start your session",
+      "rememberMe": "Remember Me",
+      "forgotPass": "I forgot my password",
+      "registerNew": "Register a new membership"
+    },
+    "button": {
+      "signIn": {
+        "label": "Sign In",
+        "social": "Sign in using {{what}}"
+      },
+      "signUp": {
+        "label": "Sign Up",
+        "social": "Sign up using {{what}}"
+      },
+      "signOut": "Sign Out"
+    }
+  },
+  "register": {
+    "alreadyHave": "I already have a membership",
+    "registerNew": "Register a new membership",
+    "label": "Register"
+  },
+  "recover": {
+    "forgotYourPassword": "You forgot your password? Here you can easily retrieve a new password.",
+    "oneStepAway": "You are only one step a way from your new password, recover your password now.",
+    "changePassword": "Change Password",
+    "requestNewPassword": "Request New Password"
+  },
+  "main": {
+    "label": {
+      "moreInfo": "More info",
+      "follow": "Follow",
+      "aboutMe": "About Me",
+      "education": "Education",
+      "location": "Location",
+      "skills": "Skills",
+      "notes": "Notes",
+      "activity": "Activity",
+      "timeline": "Timeline",
+      "settings": "Settings"
+    }
+  },
+  "header": {
+    "label": {
+      "home": "Home",
+      "contact": "Contact"
+    },
+    "language": {
+      "turkish": "Turkish",
+      "english": "English",
+      "german": "German",
+      "french": "French",
+      "spanish": "Spanish",
+      "vietnamese": "Vietnamese"
+    },
+    "messages": {
+      "ago": "{{quantity}} {{unit}} Ago",
+      "seeAll": "See All Messages"
+    },
+    "notifications": {
+      "count": "{{quantity}} Notifications",
+      "newMessagesCount": "{{quantity}} new messages",
+      "friendRequestsCount": "{{quantity}} friend requests",
+      "reportsCount": "{{quantity}} new reports",
+      "seeAll": "See All Notifications"
+    },
+    "user": {
+      "profile": "Profile",
+      "followers": "Followers",
+      "sales": "Sales",
+      "friends": "Friends"
+    }
+  },
+  "menusidebar": {
+    "label": {
+      "dashboard": "Dashboard",
+      "profile": "Profile",
+      "blank": "Gss_employee List",
+      "mainMenu": "Gss_employee",
+      "subMenu": "Gss_employee Model"
+    }
+  },
+  "menusidebar2": {
+    "label": {
+      "dashboard": "Dashboard",
+      "profile": "Profile",
+      "weeklybudget_list": "Weekly_budget List",
+      "mainMenu": "Weekly_budget",
+      "subMenu": "Weekly_budget Model"
+    }
+  },
+  "menusidebar3": {
+    "label": {
+      "mainMenu": "Project undertake",
+      "subMenu": "List",
+      "model": "Create new "
+    }
+  },
+  "footer": {
+    "version": "Version",
+    "copyright": "All rights reserved."
+  },
+  "views": {
+    "user": {
+      "profile": "User Profile",
+      "following": "Following"
+    }
+  },
+  "measurement": {
+    "quantityUnit": "{{quantity}} {{unit}}"
+  },
+  "GssEmployee": {
+    "list": "List of employee",
+    "form": "Create employee",
+    "code": "Code",
+    "price_cost": "Price cost"
+  },
+  "weeklyBudget": {
+    "list": "Budget list",
+    "form": "",
+    "name": "Budget name",
+    "budget": "Budget",
+    "display": "Display"
+  },
+  "action": {
+    "action": "Action",
+    "update": "Update",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "saves": "Save...",
+    "first": "First",
+    "last": "Last",
+    "cancel": "Cancel"
+  },
+  "messagError": {
+    "required": "Please do not leave it blank {{param}}",
+    "special_characters": "Please do not enter special characters!",
+    "required_special_characters": "Please do not leave {{param}} blank and do not enter special characters!",
+    "error": "Error No processing!",
+    "minNumber": "{{param}} value must be greater than 0",
+    "maxNumber": "{{param}} value must be less than {{paramMax}}",
+    "typeErrorNumber": "Please enter the correct number format",
+    "typeErrorDecimal": "Must contain exactly {{param}} digits after the comma",
+    "typeErrorDecimal2": "The value is taken as 8 integers and 2 digits after the comma",
+    "typeErrorDecimalFrom": "Please enter the correct format as 8 integers and 2 digits after the comma if applicable",
+    "nullOrUndefined": "Please do not leave it blank",
+    "isNaNNumber": "Do not enter a font, enter a number"
+  },
+  "messagSuccess": {
+    "success": "{{param}} success!",
+    "successFull": "Success!",
+    "notification": "Notification!"
+  },
+  "messagConfirm": {
+    "deleteItem": "Are you sure you want to delete?"
+  }
+}

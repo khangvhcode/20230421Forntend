@@ -1,0 +1,161 @@
+{
+  "login": {
+    "label": {
+      "signIn": "Đăng nhập để bắt đầu phiên của bạn",
+      "rememberMe": "Nhớ mật khẩu",
+      "forgotPass": "Quên mật khẩu",
+      "registerNew": "Đăng ký thành viên mới"
+    },
+    "button": {
+      "signIn": {
+        "label": "Đăng nhập",
+        "social": "Đăng nhập sử dụng {{what}}"
+      },
+      "signUp": {
+        "label": "Đăng ký",
+        "social": "Đăng ký sử dụng {{what}}"
+      },
+      "signOut": "Đăng xuất"
+    }
+  },
+  "register": {
+    "alreadyHave": "Tôi đã có tư cách thành viên",
+    "registerNew": "Đăng ký thành viên mới",
+    "label": "Đăng ký"
+  },
+  "recover": {
+    "forgotYourPassword": "Bạn quên mật khẩu? Tại đây bạn có thể dễ dàng lấy lại mật khẩu mới.",
+    "oneStepAway": "Bạn chỉ còn một bước nữa là đến mật khẩu mới của mình, hãy khôi phục mật khẩu của bạn ngay bây giờ.",
+    "changePassword": "Đổi mật khẩu",
+    "requestNewPassword": "Yêu cầu mật khẩu mới"
+  },
+  "main": {
+    "label": {
+      "moreInfo": "Thêm thông tin",
+      "follow": "Theo dõi",
+      "aboutMe": "Tài khoản",
+      "education": "Giáo dục",
+      "location": "Vị trí",
+      "skills": "Kỹ năng ",
+      "notes": "Ghi chú",
+      "activity": "Hoạt động",
+      "timeline": "Mốc thời gian",
+      "settings": "Cài đặt"
+    }
+  },
+  "header": {
+    "label": {
+      "home": "Trang chủ",
+      "contact": "Liên hệ"
+    },
+    "language": {
+      "turkish": "Turkish",
+      "english": "English",
+      "german": "German",
+      "french": "French",
+      "spanish": "Spanish",
+      "vietnamese": "Vietnamese"
+    },
+    "messages": {
+      "ago": "{{quantity}} {{unit}} Trước kia",
+      "seeAll": "Xem tất cả tin nhắn"
+    },
+    "notifications": {
+      "count": "{{quantity}} thông báo",
+      "newMessagesCount": "{{quantity}} các tin nhắn mới",
+      "friendRequestsCount": "{{quantity}} lời mời kết bạn",
+      "reportsCount": "{{quantity}} báo cáo mới",
+      "seeAll": "Xem tất cả thông báo"
+    },
+    "user": {
+      "profile": "Hồ sơ",
+      "followers": "Người theo dõi",
+      "sales": "Việc bán hàng",
+      "friends": "Bạn"
+    }
+  },
+  "menusidebar": {
+    "label": {
+      "dashboard": "Bảng điều khiển",
+      "profile": "Hồ sơ",
+      "blank": "Danh sách nhân viên",
+      "mainMenu": "Nhân viên gss",
+      "subMenu": "Tạo mới nhân viên"
+    }
+  },
+  "menusidebar2": {
+    "label": {
+      "dashboard": "Bảng điều khiển",
+      "profile": "Hồ sơ",
+      "weeklybudget_list": "Danh sách ngân sách",
+      "mainMenu": "Ngân sách hàng tuần",
+      "subMenu": "Tạo mới ngân sách"
+    }
+  },
+  "menusidebar3": {
+    "label": {
+      "mainMenu": "Dự án đảm nhận",
+      "subMenu": "Danh sách",
+      "model": "Tạo mới "
+    }
+  },
+  "footer": {
+    "version": "Phiên bản",
+    "copyright": "Đã đăng ký Bản quyền."
+  },
+  "views": {
+    "user": {
+      "profile": "Thông tin người dùng",
+      "following": "Tiếp theo"
+    }
+  },
+  "measurement": {
+    "quantityUnit": "{{quantity}} {{unit}}"
+  },
+  "GssEmployee": {
+    "list": "Danh sách nhân Viên",
+    "form": "Tạo mới nhân viên",
+    "code": "Mã nhân viên",
+    "price_cost":"Chi phí"
+  },
+  "weeklyBudget": {
+    "list": "Danh sách ngân sách",
+    "form": "Tạo mới nhân viên",
+    "name": "Tên ngân sách",
+    "budget": "Ngân sách",
+    "display": "Hiển thị"
+  },
+  "action": {
+    "action": "Xử lí",
+    "update": "Cập nhật",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "save": "Lưu",
+    "saves": "Lưu...",
+    "first": "Đầu",
+    "last": "Cuối",
+    "cancel": "Hủy"
+  },
+  "messagError": {
+    "required": "Vui lòng không để trống {{param}}",
+    "special_characters": "Vui lòng không nhập kí tự đặt biệt!",
+    "required_special_characters": "Vui lòng không để trống {{param}} và không nhập kí tự đặt biệt!",
+    "error": "Lỗi Không thực hiện xử lí!",
+    "minNumber": "{{param}} trị phải lớn hơn 0",
+    "maxNumber": "{{param}} trị phải nhỏ hơn {{paramMax}}",
+    "typeErrorNumber": "Vui lòng nhập đúng định dạng số",
+    "typeErrorDecimal": "Phải chứa đúng {{param}} chữ số sau dấu chấm",
+    "typeErrorDecimal2": "Giá trị được lấy là 8 số nguyên và 2 chữ số sau dấu chấm",
+    "typeErrorDecimalFrom": "Vui Lòng nhập đúng định dạng là 8 số nguyên và 2 chữ số sau dấu chấm nếu có",
+    "nullOrUndefined": "Không được để trống",
+    "isNaNNumber": "Không nhập kiểu chữ hãy nhập số"
+  },
+  "messagSuccess": {
+    "success": "{{param}} thành công!",
+    "successFull": "Thành công!",
+    "notification": "Thông báo!"
+  },
+  "messagConfirm": {
+    "deleteItem": "Bạn có chắc chắn muốn xóa?"
+  }
+}
