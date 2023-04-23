@@ -2,10 +2,15 @@
 import React, { useEffect, useState } from 'react';
 import { ContentHeader } from '@components';
 import axios from 'axios';
-import { Modal } from 'antd';
+import { Button, Modal } from 'antd';
 import { NotificationError, NotificationSuccess, URL_API } from '@app/system/constant';
 import { useTranslation } from 'react-i18next';
 import { GssEmployeeWeebudget } from '@app/system/interface/gssEmployeeWeeklyBudget.interface';
+import { useAppDispatch, useAppSelector } from "@app/redux/store";
+import { setModalOpen } from './EmployeeWeeklySlide';
+import {
+    PlusOutlined
+  } from "@ant-design/icons";
 
 const EmployeeWeeklyBudgetList = () => {
     const [t] = useTranslation();
@@ -57,6 +62,12 @@ const EmployeeWeeklyBudgetList = () => {
         //     NotificationError(`${t<string>('messagError.error')}`);
         // }
     }
+
+    const dispatch = useAppDispatch();
+
+    const handleClickAddBtn = () => {
+      dispatch(setModalOpen(true));
+    };
 
     const handleOnCodeChange = (value: string) => {
         setUpdateData({ ...updateData, code: value })
@@ -224,6 +235,12 @@ const EmployeeWeeklyBudgetList = () => {
                             <div className="row">
                                 <div className="col-sm-12 col-md-5">
                                     <div className="dataTables_info">
+                                    <Button
+                                        icon={<PlusOutlined />}
+                                        type="primary"
+                                        size="small"
+                                        onClick={handleClickAddBtn}
+                                    >Thêm</Button>
                                         {/* Hiển thị từ {startIndex + 1} đến {endIndex} của {data.length} mục */}
                                     </div>
                                 </div>

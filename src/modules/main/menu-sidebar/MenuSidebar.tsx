@@ -60,12 +60,12 @@ export const MENU: IMenuItem[] = [
       {
         name: i18n.t('menusidebar3.label.model'),
         icon: 'fas fa-wallet nav-icon',
-        path: '/list-employ-weeklybudget'
+        path: '/modal-employ-weeklybudget'
       },
       {
         name: i18n.t('menusidebar3.label.subMenu'),
         icon: 'fas fa-tasks nav-icon',
-        path: '/'
+        path: '/list-employ-weeklybudget'
       }
     ]
   }

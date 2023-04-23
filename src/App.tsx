@@ -23,6 +23,7 @@ import WeeklybudgetList from './pages/weeklyBudget/weeklyBudgetList';
 import GssEmployeeModel from './pages/gssEployee/gssEmployeeModel';
 import GssEmployeeList from './pages/gssEployee/gssEmployeeList';
 import EmployeeWeeklyBudgetList from './pages/gssEmployeeWeeklyBudget/EmployeeWeeklyList';
+import EmplyoeeWeeklyModal from './pages/gssEmployeeWeeklyBudget/EmployeeWeeklyModal';
 
 const App = () => {
   const windowSize = useWindowSize();
@@ -58,6 +59,10 @@ const App = () => {
             <Route
               path="/list-employ-weeklybudget"
               element={<EmployeeWeeklyBudgetList />}
+            />
+            <Route
+              path="/modal-employ-weeklybudget"
+              element={<EmplyoeeWeeklyModal />}
             />
             <Route
               path="/sub-menu-weeklybudget-list"
