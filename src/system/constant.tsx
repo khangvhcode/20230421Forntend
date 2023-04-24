@@ -3,7 +3,7 @@ import i18n from '@app/utils/i18n';
 import {number, string} from 'yup';
 import React from 'react';
 
-export const URL_API = 'http://localhost:8080/api';
+export const URL_API = 'http://192.168.1.10:8080/api';
 
 export const NotificationSuccess = (descriptions: string) => {
   notification.success({

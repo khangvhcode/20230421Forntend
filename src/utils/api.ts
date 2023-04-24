@@ -1,11 +1,11 @@
-import axios, {AxiosError, AxiosRequestConfig, AxiosResponse} from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import {
   ListGssEmployeeWeebudget,
   UpdateGssEmployeeWeebudget,
   DeleteGssEmployeeWeebudget
 } from '@app/system/request/gssEmployeeWeebudget.request';
 
-import {ListOrderElement} from '@app/system/request/orderElement.request';
+import { ListOrderElement } from '@app/system/request/orderElement.request';
 // axios.defaults.baseURL = 'http://localhost/api';
 const URL_API = 'http://localhost:8080/api';
 
@@ -29,6 +29,6 @@ const orderElementAPI = {
     axios.get(URL_API + '/order-element/getAllData', req).then(responseBody)
 };
 
-const api = {gssEmployeeWeebudgetAPI, orderElementAPI};
+const api = { gssEmployeeWeebudgetAPI, orderElementAPI };
 
 export default api;

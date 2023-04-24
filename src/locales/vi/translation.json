@@ -116,7 +116,7 @@
     "list": "Danh sách nhân Viên",
     "form": "Tạo mới nhân viên",
     "code": "Mã nhân viên",
-    "price_cost":"Chi phí"
+    "price_cost":"Hệ số"
   },
   "weeklyBudget": {
     "list": "Danh sách ngân sách",
@@ -157,5 +157,11 @@
   },
   "messagConfirm": {
     "deleteItem": "Bạn có chắc chắn muốn xóa?"
+  }
+  ,"GssEmployeeWeekly":{
+    "gssEmployeeId" : "Nhân Viên",
+    "orderElementId" : "Dự án",
+    "code": "Code",
+    "budget" : "Chi phí (giờ/tuần)"
   }
 }
