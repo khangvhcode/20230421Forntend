@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { ContentHeader } from '@components';
 import axios from 'axios';
-import { Modal } from 'antd';
+import { Popconfirm } from 'antd';
 import { NotificationError, NotificationSuccess, URL_API } from '@app/system/constant';
 import { useTranslation } from 'react-i18next';
 import { GssEmployee } from '@app/system/interface/gssEmployee.interface';
@@ -10,7 +10,7 @@ import { GssEmployee } from '@app/system/interface/gssEmployee.interface';
 const GssEmployeeList = () => {
     const [t] = useTranslation();
     const [data, setData] = useState<GssEmployee[]>([]);
-    const [updateData, setUpdateData] = useState<GssEmployee>({ id: 0, code: '', price_cost: 0});
+    const [updateData, setUpdateData] = useState<GssEmployee>({ id: 0, code: '', price_cost: 0 });
     const [editingId, setEditingId] = useState<number>(-1);
     const [currentPage, setCurrentPage] = useState(1);
     const [usersPerPage] = useState(7);
@@ -32,18 +32,6 @@ const GssEmployeeList = () => {
         setUpdateData({ ...item });
         setEditingId(item?.id);
     }
-
-    const showDeleteConfirm = (id: number) => {
-        Modal.confirm({
-            title: `${t<string>('messagConfirm.deleteItem')}`,
-            okText: `${t<string>('action.delete')}`,
-            okType: 'danger',
-            cancelText: `${t<string>('action.cancel')}`,
-            onOk() {
-                handleDelete(id);
-            },
-        });
-    };
 
     const handleDelete = async (id: number) => {
         try {
@@ -76,7 +64,7 @@ const GssEmployeeList = () => {
             return;
         }
 
-        if (updateData.price_cost.toString() === '') {
+        if (updateData.price_cost.toString() === '' || 0 === parseFloat(updateData.price_cost.toString())) {
             NotificationError(`${t<string>('messagError.required', { param: `${t<string>('GssEmployee.price_cost')}` })}`);
             return;
         }
@@ -90,7 +78,7 @@ const GssEmployeeList = () => {
         const newData = data.map((item) => {
             if (item.id === updateData.id) {
                 item.code = updateData.code;
-                item.price_cost = updateData.price_cost;
+                item.price_cost = parseFloat(updateData.price_cost.toString());
             };
             return item;
         })
@@ -175,7 +163,7 @@ const GssEmployeeList = () => {
                                                             defaultValue={item.price_cost}
                                                             onInput={(evt: any) => {
                                                                 const inputVal = evt?.target?.value;
-                                                                const regex = /^\d{1,8}(?:\.\d{0,2})?$/; // Regex decimal
+                                                                const regex = /^\d{0,8}(?:\.\d{0,2})?$/; // Regex decimal
                                                                 if (regex.test(inputVal)) {
                                                                     handleOnPriceCostChange(inputVal);
                                                                 } else {
@@ -204,13 +192,16 @@ const GssEmployeeList = () => {
                                                                 <button className='btn btn-primary' onClick={() => { handleUpdate(item) }}>
                                                                     {t<string>('action.edit')}
                                                                 </button>
-                                                                <button
-                                                                    className="btn btn-danger"
-                                                                    type="button"
-                                                                    onClick={() => showDeleteConfirm(item.id)}
+                                                                <Popconfirm
+                                                                    placement="topRight"
+                                                                    title= {t<string>('messagConfirm.delete')}
+                                                                    description={t<string>('messagConfirm.deleteItem')}
+                                                                    onConfirm={() => handleDelete(item.id)}
+                                                                    okText={t<string>('action.delete')}
+                                                                    cancelText={t<string>('action.cancel')}
                                                                 >
-                                                                    {t<string>('action.delete')}
-                                                                </button>
+                                                                    <button className='btn btn-danger'>{t<string>('action.delete')}</button>
+                                                                </Popconfirm>
                                                             </>
                                                         )}
                                                 </td>

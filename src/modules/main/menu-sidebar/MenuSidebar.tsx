@@ -42,18 +42,18 @@ export const MENU: IMenuItem[] = [
       }
     ]
   },
+  // {
+  //   name: i18n.t('menusidebar2.label.mainMenu'),
+  //   icon: 'far fa-caret-square-down nav-icon',
+  //   children: [
+  //     {
+  //       name: i18n.t('menusidebar2.label.weeklybudget_list'),
+  //       icon: 'fas fa-th nav-icon',
+  //       path: '/sub-menu-weeklybudget-list'
+  //     }
+  //   ]
+  // },
   {
-    name: i18n.t('menusidebar2.label.mainMenu'),
-    icon: 'far fa-caret-square-down nav-icon',
-    children: [
-      {
-        name: i18n.t('menusidebar2.label.weeklybudget_list'),
-        icon: 'fas fa-th nav-icon',
-        path: '/sub-menu-weeklybudget-list'
-      }
-    ]
-  }
-  ,{
     name: i18n.t('menusidebar3.label.mainMenu'),
     icon: 'far fa-caret-square-down nav-icon',
     children: [
@@ -85,14 +85,14 @@ const StyledUserImage = styled(PfImage)`
 `;
 
 const MenuSidebar = () => {
-  const user = useSelector((state: any) => state.auth.currentUser);
+  // const user = useSelector((state: any) => state.auth.currentUser);
   const sidebarSkin = useSelector((state: any) => state.ui.sidebarSkin);
   const menuItemFlat = useSelector((state: any) => state.ui.menuItemFlat);
   const menuChildIndent = useSelector((state: any) => state.ui.menuChildIndent);
 
   return (
     <aside className={`main-sidebar elevation-4 ${sidebarSkin}`}>
-      <Link to="/" className="brand-link">
+      {/* <Link to="/" className="brand-link">
         <StyledBrandImage
           src="/img/logo.png"
           alt="AdminLTE Logo"
@@ -101,9 +101,9 @@ const MenuSidebar = () => {
           rounded
         />
         <span className="brand-text font-weight-light">AdminLTE 3</span>
-      </Link>
+      </Link> */}
       <div className="sidebar">
-        <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+        {/* <div className="user-panel mt-3 pb-3 mb-3 d-flex">
           <div className="image">
             <StyledUserImage
               src={user.picture}
@@ -119,7 +119,7 @@ const MenuSidebar = () => {
               {user.email}
             </Link>
           </div>
-        </div>
+        </div> */}
 
         {/* <div className="form-inline">
           <SidebarSearch />

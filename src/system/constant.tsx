@@ -9,7 +9,7 @@ export const NotificationSuccess = (descriptions: string) => {
   notification.success({
     message: i18n.t('messagSuccess.successFull'),
     description: descriptions,
-    placement: 'topRight',
+    placement: 'top',
     duration: 2
   });
 };
@@ -17,7 +17,7 @@ export const NotificationError = (descriptions: string) => {
   notification.error({
     message: i18n.t('messagSuccess.notification'),
     description: descriptions,
-    placement: 'topRight',
+    placement: 'top',
     duration: 2
   });
 };

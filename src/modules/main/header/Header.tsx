@@ -42,7 +42,7 @@ const Header = () => {
             <i className="fas fa-bars" />
           </button>
         </li>
-        <li className="nav-item d-none d-sm-inline-block">
+        {/* <li className="nav-item d-none d-sm-inline-block">
           <Link to="/" className="nav-link">
             {t<string>('header.label.home')}
           </Link>
@@ -51,14 +51,14 @@ const Header = () => {
           <Link to="/" className="nav-link">
             {t<string>('header.label.contact')}
           </Link>
-        </li>
+        </li> */}
       </ul>
       <ul className="navbar-nav ml-auto">
         <MessagesDropdown />
         <NotificationsDropdown />
         <LanguagesDropdown />
         <UserDropdown />
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <button
             type="button"
             className="nav-link"
@@ -66,7 +66,7 @@ const Header = () => {
           >
             <i className="fas fa-th-large" />
           </button>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

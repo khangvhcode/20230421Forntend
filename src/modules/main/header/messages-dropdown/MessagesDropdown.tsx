@@ -29,9 +29,9 @@ const MessagesDropdown = () => {
 
   return (
     <StyledDropdown hideArrow>
-      <div slot="button">
+      {/* <div slot="button">
         <i className="far fa-comments" />
-        <span className="badge badge-danger navbar-badge">3</span>
+        <span className="badge badge-danger navbar-badge">14</span>
       </div>
       <div slot="menu">
         <Link to="/" className="dropdown-item">
@@ -127,7 +127,7 @@ const MessagesDropdown = () => {
         <Link to="/" className="dropdown-item dropdown-footer">
           {t<string>('header.messages.seeAll')}
         </Link>
-      </div>
+      </div> */}
     </StyledDropdown>
   );
 };

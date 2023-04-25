@@ -32,11 +32,6 @@ const GssEmployeeWeeklyModal = () => {
   const [selectedOptionOrder, setSelectedOptionOrder] = useState(null);
 
   const validationSchema = Yup.object().shape({
-    code: Yup.string().required(
-      `${t<string>('messagError.required', {
-        param: `${t<string>('GssEmployee.code')}`
-      })}`
-    ),
     budget: Yup.number()
       .typeError(`${t<string>('messagError.isNaNNumber')}`)
       .min(0.01, `${t<string>('messagError.minNumber', { param: `${t<string>('GssEmployeeWeekly.budget')}` })}`)
@@ -64,12 +59,6 @@ const GssEmployeeWeeklyModal = () => {
     };
 
     console.log(copiedValues)
-    const regex = /^[A-Za-z0-9_-]+(\.[A-Za-z0-9_-]+)*$/;
-    if (!regex.test(copiedValues.code)) {
-      NotificationError(`${t<string>('messagError.special_characters')}`);
-      setSubmitting(false);
-      return;
-    }
     if (null === copiedValues.id.gssEmployeeId || 0 === copiedValues.id.gssEmployeeId || null === copiedValues.id.orderElementId || 0 === copiedValues.id.orderElementId) {
       const params = 0 === copiedValues.id.gssEmployeeId || null === copiedValues.id.gssEmployeeId ? `${t<string>('GssEmployeeWeekly.gssEmployeeId')}` : `${t<string>('GssEmployeeWeekly.orderElementId')}`;
       NotificationError(`${t<string>('messagError.required', { param: params })}`);
@@ -135,7 +124,7 @@ const GssEmployeeWeeklyModal = () => {
   return (
     <div className="card card-warning">
       <div className="card-header">
-        <h3 className="card-title">{t<string>('GssEmployee.form')}</h3>
+        <h3 className="card-title">{t<string>('GssEmployeeWeekly.modal')}</h3>
       </div>
       <div className="card-body">
         <Formik
@@ -197,23 +186,7 @@ const GssEmployeeWeeklyModal = () => {
               </div>
 
               <div className="row">
-                <div className="col-sm-6">
-                  <div className="form-group">
-                    <label htmlFor="code">{t<string>('GssEmployeeWeekly.code')}</label>
-                    <Field
-                      className="form-control"
-                      id="code"
-                      name="code"
-                      maxLength={100}
-                    />
-                    <ErrorMessage
-                      name="code"
-                      component="div"
-                      className="text-danger"
-                    />
-                  </div>
-                </div>
-                <div className="col-sm-6">
+                <div className="col-sm-12">
                   <div className="form-group">
                     <label htmlFor="price_cost">
                       {t<string>('GssEmployeeWeekly.budget')}
@@ -222,7 +195,6 @@ const GssEmployeeWeeklyModal = () => {
                       className="form-control"
                       id="budget"
                       name="budget"
-                    // maxLength="20"
                     />
                     <ErrorMessage
                       name="budget"

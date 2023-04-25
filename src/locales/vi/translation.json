@@ -94,7 +94,7 @@
   },
   "menusidebar3": {
     "label": {
-      "mainMenu": "Dự án đảm nhận",
+      "mainMenu": "Ngân sách hàng tuần",
       "subMenu": "Danh sách",
       "model": "Tạo mới "
     }
@@ -148,7 +148,8 @@
     "typeErrorDecimal2": "Giá trị được lấy là 8 số nguyên và 2 chữ số sau dấu chấm",
     "typeErrorDecimalFrom": "Vui Lòng nhập đúng định dạng là 8 số nguyên và 2 chữ số sau dấu chấm nếu có",
     "nullOrUndefined": "Không được để trống",
-    "isNaNNumber": "Không nhập kiểu chữ hãy nhập số"
+    "isNaNNumber": "Không nhập kiểu chữ hãy nhập số và nhập số thập phân hãy thay bằng dấu .",
+    "requiredNumber": "Vui lòng không để trống hoặc nhập 0 vào {{param}} "
   },
   "messagSuccess": {
     "success": "{{param}} thành công!",
@@ -156,12 +157,16 @@
     "notification": "Thông báo!"
   },
   "messagConfirm": {
+    "delete": "Xóa",
     "deleteItem": "Bạn có chắc chắn muốn xóa?"
   }
   ,"GssEmployeeWeekly":{
+    "tile": "Ngân sách hàng tuần",
+    "list": "Danh sách ngân sách hàng tuần",
+    "modal": "Tạo ngân sách hàng tuần",
     "gssEmployeeId" : "Nhân Viên",
     "orderElementId" : "Dự án",
     "code": "Code",
-    "budget" : "Chi phí (giờ/tuần)"
+    "budget" : "Ngân sách (giờ/tuần)"
   }
 }

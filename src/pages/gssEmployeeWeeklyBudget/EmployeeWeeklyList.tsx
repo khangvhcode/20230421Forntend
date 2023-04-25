@@ -1,30 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ContentHeader } from '@components';
 import axios from 'axios';
-import { Button, Modal, Select } from 'antd';
+import { Modal, Popconfirm } from 'antd';
 import { NotificationError, NotificationSuccess, URL_API } from '@app/system/constant';
 import { useTranslation } from 'react-i18next';
 import { GssEmployeeWeebudget } from '@app/system/interface/gssEmployeeWeeklyBudget.interface';
-import { useAppDispatch } from "@app/redux/store";
-import { setModalOpen } from './EmployeeWeeklySlide';
-import {
-    PlusOutlined
-} from "@ant-design/icons";
-import { OrderElement } from '@app/system/interface/orderElement.interface';
-import { GssEmployee } from '@app/system/interface/gssEmployee.interface';
 
 const EmployeeWeeklyBudgetList = () => {
     const [t] = useTranslation();
     const [data, setData] = useState<GssEmployeeWeebudget[]>([]);
-    const [updateData, setUpdateData] = useState<GssEmployeeWeebudget>({ id: { gssEmployeeId: 0, orderElementId: 0 }, code: '', budget: 0, gss_employee_name: '', order_element_name: '' });
+    const [updateData, setUpdateData] = useState<GssEmployeeWeebudget>({ id: { gssEmployeeId: 0, orderElementId: 0 }, code: '', budget: 0, order_element_name: '' });
     const [editingId, setEditingId] = useState<number>(-1);
     const [currentPage, setCurrentPage] = useState(1);
     const [usersPerPage] = useState(7);
-    // const [orderData, setOrderData] = useState<OrderElement[]>([]);
-    // const [emloyeeData, setEmplyeeData] = useState<GssEmployee[]>([]);
-    // const [gssEmployeeIds, setGssEmployeeId] = useState<number>(0);
-    // const [orderElementIds, setOrderElementId] = useState<number>(0);
 
     const fetchData = async () => {
         try {
@@ -36,23 +25,9 @@ const EmployeeWeeklyBudgetList = () => {
     };
 
     const handleUpdate = (item: GssEmployeeWeebudget, index: number) => {
-        // setGssEmployeeId(item?.id?.gssEmployeeId);
-        // setOrderElementId(item?.id?.orderElementId);
         setUpdateData({ ...item });
         setEditingId(index);
     }
-
-    const showDeleteConfirm = (idEmployee: number, idOrder: number) => {
-        Modal.confirm({
-            title: `${t<string>('messagConfirm.deleteItem')}`,
-            okText: `${t<string>('action.delete')}`,
-            okType: 'danger',
-            cancelText: `${t<string>('action.cancel')}`,
-            onOk() {
-                handleDelete(idEmployee, idOrder);
-            },
-        });
-    };
 
     const handleDelete = async (idEmployee: number, idOrder: number) => {
         try {
@@ -67,31 +42,20 @@ const EmployeeWeeklyBudgetList = () => {
         }
     }
 
-    const handleOnCodeChange = (value: string) => {
-        setUpdateData({ ...updateData, code: value })
-    }
-
     const handleOnPriceCostChange = (value: number) => {
         setUpdateData({ ...updateData, budget: value })
     }
 
     const handleSaveClick = () => {
         // Gọi API để cập nhật dữ liệu với updatedData
-        // cap nhat lai danh sach 
-        const regex = /^[A-Za-z0-9_-]+(\.[A-Za-z0-9_-]+)*$/;
 
-        if (updateData.code === '' || !regex.test(updateData.code)) {
-            NotificationError(`${t<string>('messagError.required_special_characters', { param: `${t<string>('GssEmployeeWeekly.code')}` })}`);
-            return;
-        }
-
-        if (updateData.budget.toString() === '') {
-            NotificationError(`${t<string>('messagError.required', { param: `${t<string>('GssEmployeeWeekly.budget')}` })}`);
+        if (updateData.budget.toString() === '' || 0 === parseFloat(updateData.budget.toString())) {
+            NotificationError(`${t<string>('messagError.requiredNumber', { param: `${t<string>('GssEmployeeWeekly.budget')}` })}`);
             return;
         }
 
         const account = data.find((element) => element.id.gssEmployeeId === updateData.id.gssEmployeeId && element.id.orderElementId === updateData.id.orderElementId);
-        if (account?.code === updateData.code && account?.budget === updateData.budget) {
+        if (account?.code === updateData.code && account?.budget === updateData.budget || account?.budget === parseFloat(updateData.budget.toString())) {
             setEditingId(-1);
             return;
         }
@@ -99,7 +63,7 @@ const EmployeeWeeklyBudgetList = () => {
         const newData = data.map((item) => {
             if (item.id.gssEmployeeId === updateData.id.gssEmployeeId && item.id.orderElementId === updateData.id.orderElementId) {
                 item.code = updateData.code;
-                item.budget = updateData.budget;
+                item.budget = parseFloat(updateData.budget.toString())
             };
             return item;
         })
@@ -143,51 +107,25 @@ const EmployeeWeeklyBudgetList = () => {
 
     const totalPages = Math.ceil(data.length / usersPerPage);
     const pageNumbers: any = Array.from({ length: totalPages }, (_, i) => i + 1);
+
     // Thêm phần tử "First" vào đầu mảng
     pageNumbers.unshift('First');
+
     // Thêm phần tử "Last" vào cuối mảng
     pageNumbers.push('Last');
 
-    // const fetchDataOrder = async () => {
-    //     try {
-    //         const response = await axios.get(URL_API + '/order-element/getAllData');
-    //         const resullt = response?.data;
-    //         setOrderData(resullt);
-    //     } catch (error) { }
-    // };
-
-    // const fetchDataEmployee = async () => {
-    //     try {
-    //         const response = await axios.get(URL_API + '/gss-employee/getAllData');
-    //         const resullt = response?.data;
-    //         setEmplyeeData(resullt);
-    //     } catch (error) { }
-    // };
-
-    // function handleChangeEmployee(value: any) {
-    //     setGssEmployeeId(value);
-    //     setUpdateData({ ...updateData, id: { gssEmployeeId: value, orderElementId: orderElementIds } });
-    // }
-
-    // function handleChange(value: any) {
-    //     setOrderElementId(value);
-    //     setUpdateData({ ...updateData, id: { gssEmployeeId: gssEmployeeIds, orderElementId: value } });
-    // }
-
     useEffect(() => {
         fetchData();
-        // fetchDataOrder();
-        // fetchDataEmployee();
     }, []);
 
     return (
         <div>
-            <ContentHeader title={t<string>('GssEmployee.list')} />
+            <ContentHeader title={t<string>('GssEmployeeWeekly.tile')} />
             <section className="content">
                 <div className="container-fluid">
                     <div className="card card-warning">
                         <div className="card-header">
-                            <h3 className="card-title">{t<string>('GssEmployee.list')}</h3>
+                            <h3 className="card-title">{t<string>('GssEmployeeWeekly.list')}</h3>
                         </div>
                         <div className="card-body">
                             <table id="example2" className="table table-bordered table-hover">
@@ -195,7 +133,7 @@ const EmployeeWeeklyBudgetList = () => {
                                     <tr className="text-center">
                                         <th>{t<string>('GssEmployeeWeekly.gssEmployeeId')}</th>
                                         <th>{t<string>('GssEmployeeWeekly.orderElementId')}</th>
-                                        <th>{t<string>('GssEmployeeWeekly.code')}</th>
+                                        {/* <th>{t<string>('GssEmployeeWeekly.code')}</th> */}
                                         <th>{t<string>('GssEmployeeWeekly.budget')}</th>
                                         <th style={{ width: '300px' }}>{t<string>('action.action')}</th>
                                     </tr>
@@ -205,63 +143,10 @@ const EmployeeWeeklyBudgetList = () => {
                                         return (
                                             <tr key={index}>
                                                 <td>
-                                                    {/* {editingId === index ?
-                                                    (
-                                                        <>
-                                                            <Select
-                                                                showSearch
-                                                                defaultValue={item.id.gssEmployeeId}
-                                                                style={{ width: 200 }}
-                                                                placeholder="Select a person"
-                                                                optionFilterProp="children"
-                                                                onChange={handleChangeEmployee}
-                                                                filterOption={(input, optionsEmployee: any) =>
-                                                                    optionsEmployee.props.children
-                                                                        .toLowerCase()
-                                                                        .indexOf(input.toLowerCase()) >= 0
-                                                                }
-                                                            >
-                                                                {emloyeeData.map((option) => (
-                                                                    <option value={option.id}>{option.code}</option>
-                                                                ))}
-                                                            </Select>
-                                                        </>
-                                                    ) : (
-                                                        )} */}
-                                                        
-                                                        {item.gss_employee_name}
+                                                    {item.code}
                                                 </td>
                                                 <td>
-                                                    {/* {editingId === index ?
-                                                    (
-                                                        <Select
-                                                            showSearch
-                                                            style={{ width: 200 }}
-                                                            defaultValue={item.id.orderElementId}
-                                                            placeholder="Select a person"
-                                                            optionFilterProp="children"
-                                                            onChange={handleChange}
-                                                            filterOption={(input, options: any) =>
-                                                                options.props.children
-                                                                    .toLowerCase()
-                                                                    .indexOf(input.toLowerCase()) >= 0
-                                                            }
-                                                        >
-                                                            {orderData.map((option) => (
-                                                                <option value={option.id}>{option.code}</option>
-                                                            ))}
-                                                        </Select>
-                                                    ) : (
-                                                        
-                                                    )} */}
                                                     {item.order_element_name}
-                                                </td>
-                                                <td>{editingId === index ?
-                                                    (
-                                                        <input type="text" maxLength={100} defaultValue={item.code} onInput={(evt: any) => { handleOnCodeChange(evt?.target?.value) }} />
-                                                    ) : (
-                                                        item.code
-                                                    )}
                                                 </td>
                                                 <td>{editingId === index ?
                                                     (
@@ -300,13 +185,21 @@ const EmployeeWeeklyBudgetList = () => {
                                                                 <button className='btn btn-primary' onClick={() => { handleUpdate(item, index) }}>
                                                                     {t<string>('action.edit')}
                                                                 </button>
-                                                                <button
-                                                                    className="btn btn-danger"
-                                                                    type="button"
-                                                                    onClick={() => showDeleteConfirm(item.id.gssEmployeeId, item.id.orderElementId)}
+                                                                <Popconfirm
+                                                                    placement="topRight"
+                                                                    title={t<string>('messagConfirm.delete')}
+                                                                    description={t<string>('messagConfirm.deleteItem')}
+                                                                    onConfirm={() => handleDelete(item.id.gssEmployeeId, item.id.orderElementId)}
+                                                                    okText={t<string>('action.delete')}
+                                                                    cancelText={t<string>('action.cancel')}
                                                                 >
-                                                                    {t<string>('action.delete')}
-                                                                </button>
+                                                                    <button
+                                                                        className="btn btn-danger"
+                                                                        type="button"
+                                                                    >
+                                                                        {t<string>('action.delete')}
+                                                                    </button>
+                                                                </Popconfirm>
                                                             </>
                                                         )}
                                                 </td>

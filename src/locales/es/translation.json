@@ -149,6 +149,7 @@
     "typeErrorDecimalFrom": "Please enter the correct format as 8 integers and 2 digits after the comma if applicable"
     ,"nullOrUndefined": "Please do not leave it blank"
     ,"isNaNNumber": "Do not enter a font, enter a number"
+    ,"requiredNumber": "Please do not leave blank or enter 0 in {{param}} "
   },
   "messagSuccess": {
     "success": "{{param}} success!",
@@ -157,5 +158,14 @@
   },
   "messagConfirm": {
     "deleteItem": "Are you sure you want to delete?"
+  }
+  ,"GssEmployeeWeekly":{
+    "tile": "Employee weekly budget",
+    "list": "Employee weekly budget list",
+    "modal": "Create an employee's weekly budget",
+    "gssEmployeeId" : "Staff",
+    "orderElementId" : "Project",
+    "code": "Code",
+    "budget" : "Cost (hours/week)"
   }
 }

@@ -5,6 +5,5 @@ export interface GssEmployeeWeebudget {
     },
     code: string;
     budget: number;
-    gss_employee_name?: string;
     order_element_name?: string;
 };
