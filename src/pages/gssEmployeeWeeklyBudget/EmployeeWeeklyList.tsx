@@ -77,7 +77,7 @@ const EmployeeWeeklyBudgetList = () => {
                 setEditingId(-1);
             })
             .catch((error) => {
-                console.error("API error:", error);
+                // console.error("API error:", error);
                 // Thực hiện các xử lý cần thiết khi API trả về kết quả thất bại
                 try {
                     NotificationError(error.response.data);
